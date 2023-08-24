@@ -8,13 +8,15 @@ import SuperUserSingup from './pages/SuperUserSingup';
 import UserDocument from './pages/UserDocument';
 import UserSingUp from './pages/UserSingUp';
 import UserLogin from './pages/UserLogin';
+import NavBar from './components/NavBar';
 
 function App() {
   
 
   return (
-  
-    <Router>
+  <div className=''>
+      <Router>
+        <NavBar/>
       <Routes>
           <Route path='/' element={ <Presentation />} />
           <Route path='/user-login' element={<UserLogin />} />
@@ -24,7 +26,9 @@ function App() {
           <Route path='/user-document' element={<UserDocument />} />
           <Route path='/super-user-document' element={<SuperUserDocument />} />
       </Routes>
-    </Router>
+    </Router> 
+  </div>
+    
     
   )
 }
