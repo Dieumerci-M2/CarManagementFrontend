@@ -1,9 +1,10 @@
 import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const UserLogin = () => {
-   
+   const router = useNavigate();
   return (
     <article className="flex">
       <section className="w-[50%]">
@@ -43,7 +44,7 @@ const UserLogin = () => {
           </div>
           <div className="flex justify-center items-center gap-2">
             <span>Already have'nt an account ?</span>
-            <span className="text-[#7D6CE2FF]">Sign Up</span>
+            <span className="text-[#7D6CE2FF] cursor-pointer" onClick={()=>{router('/user-signUp')}}>Sign Up</span>
           </div>
           <div className="flex justify-center items-center">
             <Button type="text" className="text-[#7D6CE2FF]">ADMIN</Button>
