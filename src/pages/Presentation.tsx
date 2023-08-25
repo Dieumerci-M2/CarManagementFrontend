@@ -1,8 +1,9 @@
 import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import '../App.css'
 
 const Presentation = () => {
- 
+    const router = useNavigate();
   return (
       <article className="bg flex w-full bg-cover ">
           <section className='bg-black w-full opacity-90 flex-row justify-between'>
@@ -15,7 +16,9 @@ const Presentation = () => {
                   </span>
             </div>
               <div className='my-16 text-center'>
-                  <Button className='bg-[#FFC466FF] w-32'>Continuer</Button>
+                  <Button className='bg-[#FFC466FF] w-32' onClick={() => {
+                router('/user-login');
+              }}>Continuer</Button>
               </div>   
           </section>
     </article>
