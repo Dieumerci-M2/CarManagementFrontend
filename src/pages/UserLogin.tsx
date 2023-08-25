@@ -1,9 +1,10 @@
 import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const UserLogin = () => {
-   
+   const router = useNavigate();
   return (
     <article className="flex">
       <section className="w-[50%]">
@@ -32,7 +33,9 @@ const UserLogin = () => {
               </Space>
               <span className="text-[#7D6CE2FF]">Forgot password?</span>
             </div>
-            <Button size="large" className="w-full bg-[#7D6CE2FF] text-white">continuer</Button>
+            <Button size="large" className="w-full bg-[#7D6CE2FF] text-white"
+            >continuer
+            </Button>
           </div>
           <div className="flex flex-col justify-center items-center"> 
             <span className="text-[#babcbe]">By continuing you agree to our</span>
@@ -43,10 +46,16 @@ const UserLogin = () => {
           </div>
           <div className="flex justify-center items-center gap-2">
             <span>Already have'nt an account ?</span>
-            <span className="text-[#7D6CE2FF]">Sign Up</span>
+            <span className="text-[#7D6CE2FF] 
+            cursor-pointer" onClick={() => { router('/user-signUp') }}
+            >Sign Up
+            </span>
           </div>
           <div className="flex justify-center items-center">
-            <Button type="text" className="text-[#7D6CE2FF]">ADMIN</Button>
+            <Button type="text" className="text-[#7D6CE2FF]"
+              onClick={()=>{router('/super-user-login')}}
+            >ADMIN
+            </Button>
           </div>
         </div>
       </section>
