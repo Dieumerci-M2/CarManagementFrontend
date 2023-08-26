@@ -5,3 +5,14 @@
     background-size: cover;
 
 }
+#car{
+    background-color: #FEFFFE;
+    border : 1px solid #DDDDDD;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#car:hover{
+border: 1px solid rgb(107, 178, 223);
+}
