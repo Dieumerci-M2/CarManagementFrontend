@@ -9,6 +9,8 @@ import UserDocument from './pages/UserDocument';
 import UserSingUp from './pages/UserSingUp';
 import UserLogin from './pages/UserLogin';
 import NavBar from './components/NavBar';
+import UserOneDocument from './pages/UserOneDocument';
+import SuperUserOneDoc from './pages/SuperUserOneDoc';
 
 function App() {
   
@@ -25,6 +27,8 @@ function App() {
           <Route path='/super-user-signUp' element={<SuperUserSingup />} />
           <Route path='/user-document' element={<UserDocument />} />
           <Route path='/super-user-document' element={<SuperUserDocument />} />
+          <Route path='/one-document' element={<UserOneDocument />} />
+          <Route path='/one-document&change' element={ <SuperUserOneDoc /> } />
       </Routes>
     </Router> 
   </div>
