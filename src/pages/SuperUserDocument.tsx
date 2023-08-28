@@ -22,7 +22,7 @@ const SuperUserDocument = () => {
         </div>
       </section>
       <section>
-          <Document />
+          
       </section>
     </article>
   )

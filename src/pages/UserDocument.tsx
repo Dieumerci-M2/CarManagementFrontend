@@ -27,7 +27,7 @@ const UserDocument = () => {
   useEffect(() => {
     fetch("https://carmanagementbackend-production.up.railway.app/document/findAll", {
       headers: {
-        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY5MzEzODYzOSwiZXhwIjoxNjkzMjI1MDM5fQ.pQkromle9r1XEgin_OlCZzMjEYjg7vSsVmzY3WhRCV4",
+        Authorization: "",
         mode: "cors"
       }
     }).then(res => res.json())
