@@ -4,7 +4,12 @@ import { Button, Input, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 const UserSingUp = () => {
-    const router = useNavigate();
+  const router = useNavigate();
+  
+  // Regex to validate userName and password
+  let regexEmail = /^([a-zA-Z._\-0-9]{3,50})@([a-zA-Z0-9]{3,20})\.([a-zA-Z]{2,5})$/;
+  let regexPassword = /^([ #-ù]{8,20})$/i;
+  
   return (
     <article className="flex">
       <section className="w-[50%]">

@@ -2,7 +2,7 @@ import { Input } from 'antd';
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import Document from "../components/Document";
-import {UserDocumentInfo} from "../index"
+import { UserDocumentInfo } from "../@types/global"
 
 const UserDocument = () => {
   // Search data
@@ -27,7 +27,7 @@ const UserDocument = () => {
   useEffect(() => {
     fetch("https://carmanagementbackend-production.up.railway.app/document/findAll", {
       headers: {
-        Authorization: "",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY5MzEzODYzOSwiZXhwIjoxNjkzMjI1MDM5fQ.pQkromle9r1XEgin_OlCZzMjEYjg7vSsVmzY3WhRCV4",
         mode: "cors"
       }
     }).then(res => res.json())
@@ -40,7 +40,7 @@ const UserDocument = () => {
   
   return (
     <article>
-      <section className="flex justify-center items-center gap-2 my-14">
+      <section className="flex justify-center items-center gap-2 my-10">
         <div className="relative">
           <Search placeholder="input search text" onChange={onSearch} className="w-96" />
           {

@@ -1,4 +1,4 @@
-import { UserDocumentInfo } from '../index'
+import { UserDocumentInfo } from '../@types/global'
 
 const Document = ({ data }:{data:UserDocumentInfo}) => {
   return (
