@@ -2,9 +2,22 @@
 const UserOneDocument = () => {
   
   return (
-    <div className="flex justify-between p-10">
-            
-    </div>
+    <article className="flex justify-between p-10">
+      <section>
+        <div>
+          <img />
+          <span></span>
+        </div>
+        <div>
+          <img />
+          <span></span>
+        </div>
+      </section> 
+      <section>
+        <span></span>
+        <InfoDoc />
+      </section>
+    </article>
   )
 }
 

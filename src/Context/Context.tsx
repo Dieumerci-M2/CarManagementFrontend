@@ -10,12 +10,9 @@ const ContextProvider = ({ children }: { children: JSX.Element })=> {
     useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("InfoUser") as string);
     setUser( userInfo );
-  
-  }, []);
+    }, []);
   return (
-      <DocContext.Provider
-      value={{ user, setUser}}
-      >
+    <DocContext.Provider value={{ user, setUser }}>
        {children}   
     </DocContext.Provider>
   )
