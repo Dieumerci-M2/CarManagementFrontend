@@ -11,6 +11,8 @@ import UserLogin from './pages/UserLogin';
 import NavBar from './components/NavBar';
 import UserOneDocument from './pages/UserOneDocument';
 import SuperUserOneDoc from './pages/SuperUserOneDoc';
+import AddDoc from './pages/AddDoc';
+import UpdateDoc from './pages/UpdateDoc';
 
 function App() {
   
@@ -27,8 +29,10 @@ function App() {
           <Route path='/super-user-signUp' element={<SuperUserSingup />} />
           <Route path='/user-document' element={<UserDocument />} />
           <Route path='/super-user-document' element={<SuperUserDocument />} />
-          <Route path='/one-document' element={<UserOneDocument />} />
-          <Route path='/one-document&change' element={ <SuperUserOneDoc /> } />
+          <Route path='/user-document/one-document' element={<UserOneDocument />} />
+          <Route path='/super-user-document/one-document&change' element={<SuperUserOneDoc />} />
+          <Route path='/super-user-document/add-document' element={<AddDoc />} />
+          <Route path='/super-user-document/update-document' element={ <UpdateDoc/>} />
       </Routes>
     </Router> 
   </div>
