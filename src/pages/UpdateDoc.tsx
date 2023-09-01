@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../App.css'
 import { Input, Button } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom';
 
 const UpdateDoc = () => {
     const [nameProp, setNameProp] = useState<string>('')
@@ -8,8 +10,14 @@ const UpdateDoc = () => {
     const [marque, setMarque] = useState<string>('')
     const [plaque, setPlaque] = useState<string>('')
     const [idVehicule, setIdVehicule] = useState<number>()
+    const router = useNavigate()
+
+    const Homepage = () => {
+        router('/super-user-document')
+    }
   return (
-    <article className='flex my-20 mx-28'>
+      <article className='flex my-20 mx-28'>
+          <ArrowLeftOutlined className='absolute top-20 left-5' onClick={Homepage}/>
           <section className='flex flex-col justify-center w-[50%] gap-12'>
               <div className='flex gap-4'>
                   <div className='flex justify-center items-center p-4 w-80 shadow-md h-8 rounded-md'>

@@ -4,13 +4,17 @@ import man from "../assets/c.jpg"
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useNavigate } from "react-router-dom"
 import AdminBouton from "../components/AdminBouton"
+import ModalDeleteDoc from "../components/ModalDeleteDoc"
+import { DocContext } from "../Context/Context"
+import { useContext } from "react"
 
 const SuperUserOneDoc = () => {
-  const router  = useNavigate()
+  const router = useNavigate()
   
   const goHome = () => {
     router('/user-document')
   }
+  const {modalDelete} = useContext(DocContext)
 
   return (
      <article className="flex justify-between py-8 px-16">
@@ -31,6 +35,7 @@ const SuperUserOneDoc = () => {
       <section>
         <AdminBouton />
       </section>
+    <ModalDeleteDoc visible={modalDelete} />
     </article>
   )
 }
