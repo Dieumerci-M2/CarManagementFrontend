@@ -21,7 +21,7 @@ const ModalDeleteDoc = ({ visible }: { visible: boolean }) => {
             </div>
             <div className='flex flex-col justify-center gap-6'>
               <Button className='w-48 h-12 bg-[#FFC466FF] text-xl rounded-md'>Delete Document</Button>
-              <Button className='w-48 h-12 bg-red-600 text-xl rounded-md' onClick={setModalDelete(false)}>Cancel</Button>
+              <Button className='w-48 h-12 bg-red-600 text-xl rounded-md' onClick={()=>setModalDelete(false)}>Cancel</Button>
             </div>   
         </section>  
     </main>

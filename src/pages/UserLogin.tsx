@@ -1,28 +1,23 @@
 import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserLoginInfo } from "../@types/global";
 import axios from "axios";
+import { DocContext } from "../Context/Context";
 
 const UserLogin = () => {
   // Navigator
   const router = useNavigate();
 
   // Initialize UseState
-  const [LogName, setLogName] = useState<string>('')
-  const [LogPassword, setLogPassword] = useState<string>('')
+  const [LogName, setLogName] = useState<string>(null)
+  const [LogPassword, setLogPassword] = useState<string>(null)
 
-  const toastOptions : object = {
-    position: "bottom-right",
-    autoClose: 2000,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "dark",
-  };
+  const {toastOptions} = useContext(DocContext)
 
   const connectHandler = async () => {
 

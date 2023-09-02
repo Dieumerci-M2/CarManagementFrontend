@@ -13,7 +13,7 @@ const AdminBouton = () => {
           <div>
             <Button icon={<ReloadOutlined />} className='h-12 text-xl'>Update Document</Button>
           </div>
-          <div onClick={setModalDelete(true)}>
+          <div onClick={()=>setModalDelete(true)}>
             <Button icon={<DeleteOutlined />} className='h-12 text-xl'>Delete Document</Button>  
           </div>
     </article>
