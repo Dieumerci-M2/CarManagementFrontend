@@ -1,7 +1,7 @@
 import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,10 +12,9 @@ import { DocContext } from "../Context/Context";
 const UserLogin = () => {
   // Navigator
   const router = useNavigate();
-
-  // Initialize UseState
-  const [LogName, setLogName] = useState<string>(null)
-  const [LogPassword, setLogPassword] = useState<string>(null)
+  
+  //Call Context
+  const {LogName, LogPassword, setLogName, setLogPassword} = useContext(DocContext)
 
   const {toastOptions} = useContext(DocContext)
 

@@ -26,5 +26,9 @@ export interface ContextInfo{
 	"setUser"?: React.Dispatch<React.SetStateAction<UserLoginInfo | undefined>>,
 	"modalDelete"?: boolean,
 	"setModalDelete"?: React.Dispatch<React.SetStateAction<boolean>>
-	"toastOptions" ?: any 
+	"toastOptions"?: any,
+	"LogName"?: string,
+	"setLogName"?: React.Dispatch<React.SetStateAction<string>>,
+	"LogPassword"?: string,
+	"setLogPassword"?: React.Dispatch<React.SetStateAction<string>>
 }

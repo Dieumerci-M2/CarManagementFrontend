@@ -6,7 +6,9 @@ export const DocContext = createContext<ContextInfo>({})
 
 const ContextProvider = ({ children }: { children: JSX.Element })=> {
     const [user, setUser] = useState<UserLoginInfo>(null)
-    const [modalDelete, setModalDelete] = useState(false)
+  const [modalDelete, setModalDelete] = useState(false)
+   const [LogName, setLogName] = useState(null)
+  const [LogPassword, setLogPassword] = useState(null)
 
     const toastOptions : object = {
     position: "bottom-right",
@@ -21,7 +23,10 @@ const ContextProvider = ({ children }: { children: JSX.Element })=> {
     setUser( userInfo );
     }, []);
   return (
-    <DocContext.Provider value={{ user, modalDelete, setModalDelete , toastOptions}}>
+    <DocContext.Provider value={{
+      user, modalDelete, setModalDelete, toastOptions, LogName,
+      setLogName, LogPassword, setLogPassword
+    }}>
        {children}   
     </DocContext.Provider>
   )

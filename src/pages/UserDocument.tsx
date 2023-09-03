@@ -8,7 +8,8 @@ import { DocContext } from '../Context/Context';
 const UserDocument = () => {
   // Search data
   const [searchData, setSearchData] = useState<UserDocumentInfo[]>([])
-  const {user}  = useContext(DocContext)
+  const { user } = useContext(DocContext)
+    console.log(user.token)
   const { Search } = Input;
   const onSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     fetch(`https://carmanagementbackend-production.up.railway.app/document/findAll?plaque=${e.target.value}`, {
@@ -32,6 +33,7 @@ const UserDocument = () => {
         Authorization: `Bearer ${user.token}`,
         mode: "cors"
       }
+
     }).then(res => res.json())
       .then(({ data }:{data:UserDocumentInfo[]}) => {
         setPreviewData(data.slice(0,7))

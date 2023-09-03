@@ -1,10 +1,12 @@
 import { UserDocumentInfo } from '../@types/global'
+import { useNavigate } from 'react-router-dom'
 
-const Document = ({ data }:{data:UserDocumentInfo}) => {
+const Document = ({ data }: { data: UserDocumentInfo }) => {
+  const router = useNavigate()
   return (
     <article className='flex flex-col shadow-md w-60 rounded-b-md'>
         <div className='cursor-pointer'>
-        <img src={data?.photoVehicule } className='h-44'/>
+        <img src={data?.photoVehicule } className='h-44' onClick={()=>router('/user-document/one-document')} />
         </div>
         <div className='flex justify-center items-center mt-4'>
         <span>{ data?.plaque}</span>
