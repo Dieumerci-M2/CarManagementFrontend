@@ -1,7 +1,7 @@
 import { Input } from 'antd';
 import React, { useContext, useEffect, useState } from "react";
 import '../App.css';
-import Document from "../components/Document";
+import SuperDoc from '../components/SuperDoc';
 import { UserDocumentInfo } from "../@types/global"
 import { DocContext } from '../Context/Context';
 
@@ -65,7 +65,7 @@ const SuperUserDocument = () => {
       </section>
       <section className='flex flex-wrap mx-20 gap-16 justify-between'>
         {
-          previewData.map(data => <Document key={data.id} data={data} />)
+          previewData.map(data => <SuperDoc key={data.id} data={data} />)
         }
       </section>
     </article>
