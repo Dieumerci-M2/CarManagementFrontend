@@ -2,9 +2,47 @@ import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { UserLoginInfo } from "../@types/global";
+import { ToastContainer, toast } from 'react-toastify';
+import axios from "axios";
+import { DocContext } from "../Context/Context";
+import { useContext } from "react";
 
 const SuperUserLogin = () => {
   const router = useNavigate();
+
+    //Call Context
+  const {LogName, LogPassword, setLogName, setLogPassword} = useContext(DocContext)
+
+  const { toastOptions } = useContext(DocContext)
+  
+   const connectHandler = async () => {
+
+    if (LogName.length === 0 && LogPassword.length) {
+      toast.error('complete all the field', toastOptions)
+      return
+    }
+
+    try {
+      const config : object = {
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        mode : 'cors'
+      }
+
+      const { data }: { data: UserLoginInfo[] } = await axios.post("https://carmanagementbackend-production.up.railway.app/superuserLogin/account/login",
+        { userName: LogName, password: LogPassword }, config)
+      
+      toast.success('Login successful', toastOptions)
+      
+       localStorage.setItem( 'InfoUser', JSON.stringify(data))
+      router('/super-user-document')
+      
+    } catch (error) {
+      toast.error(`You haven't an Account please create an account`, toastOptions);
+    }
+  }
   return (
     <article className="flex">
       <section className="w-[50%]">
@@ -25,16 +63,20 @@ const SuperUserLogin = () => {
             <span className="text-[#9095A0FF]">Sing in your account</span>
           </div>
           <div className="flex flex-col gap-4">
-            <Input size="large" placeholder="Super User Name" prefix={<UserOutlined />} />
+            <Input size="large" placeholder="Super User Name" prefix={<UserOutlined />}
+                    onChange={(e)=>setLogName(e.target.value)}
+            />
             <div className="flex flex-col gap-2">
               <Space direction="vertical" className="w-full">
               <Input.Password placeholder="password" size="large" iconRender={(visible) =>
-                (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} />
+                (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} onChange={(e)=> setLogPassword(e.target.value)}/>
               </Space>
               <span className="text-[#7D6CE2FF]">Forgot password?</span>
             </div>
             <Button size="large" className="w-full bg-[#7D6CE2FF] text-white"
-            >continuer
+                      onClick={connectHandler}
+            >
+              continuer
             </Button>
           </div>
           <div className="flex flex-col justify-center items-center"> 
@@ -59,6 +101,7 @@ const SuperUserLogin = () => {
           </div>
         </div>
       </section>
+      <ToastContainer/>
     </article>
   )
 }

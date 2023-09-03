@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react"
 import { UserLoginInfo } from "../@types/global"
 import { ContextInfo } from "../@types/global"
+import 'react-toastify/dist/ReactToastify.css';
 
 export const DocContext = createContext<ContextInfo>({})
 
