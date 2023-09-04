@@ -1,10 +1,38 @@
 import car from "../assets/car.jpg"
 import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { UserLoginInfo } from "../@types/global";
+import { ToastContainer, toast } from 'react-toastify';
+import { DocContext } from "../Context/Context";
+import { ContextInfo } from "../@types/global";
+import axios from "axios";
 
 const UserSingUp = () => {
-    const router = useNavigate();
+  const router = useNavigate();
+  const { toastOptions } = useContext(DocContext)
+  const [signName, setSignnName] = useState<string>(null)
+  const [singPassword, setSingPassword] = useState<string>(null)
+  const [confirmPassword, setConfirmPassword] = useState<string>(null)
+
+  // Regex to validate userName and password
+  let regexEmail = /^([a-zA-Z._\-0-9]{3,50})@([a-zA-Z0-9]{3,20})\.([a-zA-Z]{2,5})$/;
+  let regexPassword = /^([ #-ù]{8,20})$/i;
+
+  const submitHandler = () => {
+    if (signName.length === 0 || singPassword.length === 0 || confirmPassword.length === 0) {
+      toast.warning(`Please complete  all the field`, toastOptions)
+      return
+    }
+    if ( singPassword !== confirmPassword ) {
+      toast.warning('please enter the some password', toastOptions)
+    }
+    if ( !regexEmail.test( signName ) ) {
+      toast.error(`Please enter a valid Email`, toastOptions)
+    }
+  }
+
   return (
     <article className="flex">
       <section className="w-[50%]">
@@ -52,6 +80,7 @@ const UserSingUp = () => {
           </div>
         </div>
       </section>
+      <ToastContainer/>
     </article>
   )
 }
