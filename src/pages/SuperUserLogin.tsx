@@ -86,13 +86,6 @@ const SuperUserLogin = () => {
               <span className="text-[#babcbe]">and</span><span>Privacy Policy</span>
             </div>
           </div>
-          <div className="flex justify-center items-center gap-2">
-            <span>Already have'nt an account ?</span>
-            <span className="text-[#7D6CE2FF] 
-            cursor-pointer" onClick={() => { router('/super-user-signUp') }}
-            >Sign Up
-            </span>
-          </div>
           <div className="flex justify-center items-center">
             <Button type="text" className="text-[#7D6CE2FF]"
               onClick={()=>{router('/user-login')}}

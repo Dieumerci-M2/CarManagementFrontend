@@ -25,7 +25,7 @@ function App() {
           <Route path='/' element={ <Presentation />} />
           <Route path='/user-login' element={<UserLogin />} />
           <Route path='/super-user-login' element={<SuperUserLogin />} />
-          <Route path='/user-signUp' element={<UserSingUp />} />
+          <Route path='/user-signUp' element={<UserSingUp  />} />
           <Route path='/super-user-signUp' element={<SuperUserSingup />} />
           <Route path='/user-document' element={<UserDocument />} />
           <Route path='/super-user-document' element={<SuperUserDocument />} />

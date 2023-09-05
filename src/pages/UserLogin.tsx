@@ -12,7 +12,7 @@ const UserLogin = () => {
   // Navigator
   const router = useNavigate();
   
-  //Call Context
+  //Call Context states
   const {LogName, LogPassword, setLogName, setLogPassword} = useContext(DocContext)
 
   const {toastOptions} = useContext(DocContext)

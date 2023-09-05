@@ -31,4 +31,6 @@ export interface ContextInfo{
 	"setLogName"?: React.Dispatch<React.SetStateAction<string>>,
 	"LogPassword"?: string,
 	"setLogPassword"?: React.Dispatch<React.SetStateAction<string>>
+	"ConfirmPassword"?: string,
+	"setConfirmPassword"?: React.Dispatch<React.SetStateAction<string>>
 }
