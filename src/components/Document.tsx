@@ -1,8 +1,7 @@
 import { UserDocumentInfo } from '../@types/global'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 const Document = ({ data }: { data: UserDocumentInfo }) => {
-  const router = useNavigate()
   return (
     <article className='flex flex-col shadow-md w-60 rounded-b-md'>
       <Link to={`/user-document/one-document?document=${data.id}`}>

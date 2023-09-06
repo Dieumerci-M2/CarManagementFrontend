@@ -3,7 +3,6 @@ import { EyeInvisibleOutlined, EyeTwoTone,UserOutlined } from '@ant-design/icons
 import { Button, Input, Space } from 'antd';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
-import { UserLoginInfo } from "../@types/global";
 import { ToastContainer, toast } from 'react-toastify';
 import { DocContext } from "../Context/Context";
 import axios from "axios";
@@ -18,7 +17,7 @@ const UserSingUp = () => {
   let regexPassword = /^([ #-ù]{8,20})$/i;
 
   const submitHandler = async () => {
-    if (LogName.length === 0 || LogPassword.length === 0 || ConfirmPassword.length === 0) {
+    if (LogName.length == 0 || LogPassword.length == 0 || ConfirmPassword.length == 0) {
       toast.warning(`Please complete  all the field`, toastOptions)
       return
     }
@@ -31,7 +30,7 @@ const UserSingUp = () => {
     if ( !regexPassword.test( LogPassword ) ) {
       toast.error(`Please enter a valid Password`, toastOptions)
     }
-
+    
   try {
      const config : object = {
         headers: {
@@ -40,11 +39,10 @@ const UserSingUp = () => {
         mode : 'cors'
       }
 
-    const { data }: { data: UserLoginInfo[] } = await axios.post("https://carmanagementbackend-production.up.railway.app/superuser/account/new",
-        { userName: LogName, password: LogPassword }, config)
-      
+     await axios.post("https://carmanagementbackend-production.up.railway.app/user/account/new",
+       { userName: LogName, password: LogPassword }, config)
+    
       toast.success('Sign-Up successful', toastOptions)
-      localStorage.setItem( 'data', JSON.stringify(data))
       router('/user-login')
     
     } catch (error) {

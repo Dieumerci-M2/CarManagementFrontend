@@ -1,8 +1,7 @@
 import InfoDoc from "../components/InfoDoc"
-import man from "../assets/c.jpg"
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useNavigate, useSearchParams } from "react-router-dom"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 
 const UserOneDocument = () => {
@@ -10,6 +9,7 @@ const UserOneDocument = () => {
   
   const [query] = useSearchParams()
   const [docData, setDocData] = useState(null)
+  
   useEffect(() => {
     const id = query.get('document')
     if (!id) return ()=> null
@@ -27,12 +27,12 @@ const UserOneDocument = () => {
       <section className="flex flex-col justify-between">
         <div className="mb-6" onClick={goHome}><ArrowLeftOutlined/></div>
         <div className="flex flex-col gap-2">
-          <img src={ docData?.photoVehicule} alt="Car" className="w-80 h-48"/>
-          <span>Marque : BMW</span>
+          <img src={ docData?.photoVehicule} alt="Car" className="w-80 h-48 bg-cover"/>
+          <span>Marque : {docData?.marque }</span>
         </div>
         <div className="flex flex-col gap-2">
-          <img src={ man } alt="Owner" className="w-80 h-48"/>
-          <span>Md</span>
+          <img src={ docData?.photoProp } alt="Owner" className="w-80 h-48 bg-cover"/>
+          <span>{ docData?.nomProp}</span>
         </div>
       </section> 
       <section>
