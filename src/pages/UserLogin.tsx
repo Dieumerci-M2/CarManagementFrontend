@@ -4,7 +4,6 @@ import { Button, Input, Space } from 'antd';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { UserLoginInfo } from "../@types/global";
 import axios from "axios";
 import { DocContext } from "../Context/Context";
@@ -13,7 +12,7 @@ const UserLogin = () => {
   // Navigator
   const router = useNavigate();
   
-  //Call Context
+  //Call Context states
   const {LogName, LogPassword, setLogName, setLogPassword} = useContext(DocContext)
 
   const {toastOptions} = useContext(DocContext)

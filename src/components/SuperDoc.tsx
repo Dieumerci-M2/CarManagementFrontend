@@ -1,14 +1,13 @@
 import { UserDocumentInfo } from '../@types/global'
-import { Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Document = ({ data }: { data: UserDocumentInfo }) => {
+const SuperDoc = ({ data }: { data: UserDocumentInfo }) => {
+     const router = useNavigate()
   return (
-    <article className='flex flex-col shadow-md w-60 rounded-b-md'>
-      <Link to={`/user-document/one-document?document=${data.id}`}>
+     <article className='flex flex-col shadow-md w-60 rounded-b-md'>
         <div className='cursor-pointer'>
-        <img src={data?.photoVehicule } className='h-44' />
+        <img src={data?.photoVehicule } className='h-44' onClick={()=>router('/super-user-document/one-document&change')} />
         </div>
-      </Link>
         <div className='flex justify-center items-center mt-4'>
         <span>{ data?.plaque}</span>
         </div>
@@ -28,4 +27,4 @@ const Document = ({ data }: { data: UserDocumentInfo }) => {
   )
 }
 
-export default Document
+export default SuperDoc

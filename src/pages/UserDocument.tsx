@@ -9,7 +9,6 @@ const UserDocument = () => {
   // Search data
   const [searchData, setSearchData] = useState<UserDocumentInfo[]>([])
   const { user } = useContext(DocContext)
-    console.log(user.token)
   const { Search } = Input;
   const onSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     fetch(`https://carmanagementbackend-production.up.railway.app/document/findAll?plaque=${e.target.value}`, {
@@ -50,8 +49,10 @@ const UserDocument = () => {
           {
             searchData.length === 0
               ? <></>
-            : <ul className="p-4 absolute top-8 left-0 right-0 border-2 border-t-0 flex flex-col gap-2">
-                {searchData.map(item => <li key={item.id} className=''>{item.plaque}</li>)}
+              : <ul className="p-4 absolute top-8 left-0 right-0 border-[1px] border-t-0 flex flex-col gap-2
+                bg-white pb-8 rounded-b-2xl"
+              >
+                {searchData.map(item => <li key={item.id} className='border-b-[1px] border-b-[#CCCCCC] cursor-pointer'>{item.plaque}</li>).slice(0,5)}
               </ul>
           }
         </div>

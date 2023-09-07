@@ -1,5 +1,7 @@
 
+
 const InfoDoc = () => {
+    
   return (
     <article className="">
           <div className="flex justify-center mb-10 w-40 h-[50px] shadow-md">
