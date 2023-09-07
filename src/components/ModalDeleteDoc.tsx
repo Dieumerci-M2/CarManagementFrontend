@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 const ModalDeleteDoc = ({ visible }: { visible: boolean }) => {
 
-    const { modalDelete, setModalDelete } = useContext(DocContext)
+    const { setModalDelete } = useContext(DocContext)
 
  
     if (!visible) return null
