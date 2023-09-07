@@ -9,7 +9,6 @@ const UserDocument = () => {
   // Search data
   const [searchData, setSearchData] = useState<UserDocumentInfo[]>([])
   const { user } = useContext(DocContext)
-    console.log(user.token)
   const { Search } = Input;
   const onSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     fetch(`https://carmanagementbackend-production.up.railway.app/document/findAll?plaque=${e.target.value}`, {

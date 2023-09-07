@@ -1,15 +1,11 @@
-import { useState } from 'react';
+
 import '../App.css'
 import { Input, Button } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom';
 
 const UpdateDoc = () => {
-    const [nameProp, setNameProp] = useState<string>('')
-    const [photoProp, setPhotoProp] = useState<string>('')
-    const [marque, setMarque] = useState<string>('')
-    const [plaque, setPlaque] = useState<string>('')
-    const [idVehicule, setIdVehicule] = useState<number>()
+  
     const router = useNavigate()
 
     const Homepage = () => {
@@ -78,23 +74,23 @@ const UpdateDoc = () => {
           <section className='flex flex-col w-[50%] justify-center gap-8'>
               <div className='flex justify-end items-end gap-8'>
                 <span>Nom Prop</span>
-                <Input className='w-96 h-8' onChange={(e)=>setNameProp(e.target.value)}/>
+                <Input className='w-96 h-8'/>
               </div>
               <div className='flex justify-end items-end gap-8'>
                 <span>Photo Prop</span>
-                <Input className='w-96 h-8' onChange={(e)=>setPhotoProp(e.target.value)}/>
+                <Input className='w-96 h-8' />
               </div>
               <div className='flex justify-end items-end gap-8'>
                 <span>Marque</span>
-                <Input className='w-96 h-8' onChange={(e)=>setMarque(e.target.value)}/>
+                <Input className='w-96 h-8' />
               </div>
               <div className='flex justify-end items-end gap-8'>
                 <span>Plaque</span>
-                <Input className='w-96 h-8' onChange={(e)=>setPlaque(e.target.value)}/>
+                <Input className='w-96 h-8' />
               </div>
               <div className='flex justify-end items-end gap-8'>
                 <span>ID Véhicule</span>
-                <Input className='w-96 h-8' onChange={(e)=>setIdVehicule(parseInt(e.target.value))}/>
+                <Input className='w-96 h-8'/>
               </div>
             <Button className='w-48 h-12 bg-[#FFC466FF] text-xl rounded-md ml-16'>Update Document</Button>
           </section>
