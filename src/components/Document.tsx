@@ -19,8 +19,7 @@ const Document = ({ data }: { data: UserDocumentInfo }) => {
             data?.permiDeConduire
             ? <div className="w-5 h-5 rounded-[50px] bg-[#00FF10FF]"></div>
             : <div className="w-5 h-5 rounded-[50px] bg-[#F9623EFF]"></div>
-          }
-            
+          } 
           </div>
         <span className='mr-6 mt-1'>{ data.nomProp}</span>
         </div>

@@ -4,6 +4,7 @@ import '../App.css';
 import Document from "../components/Document";
 import { UserDocumentInfo } from "../@types/global"
 import { DocContext } from '../Context/Context';
+import { Link} from 'react-router-dom'
 
 const UserDocument = () => {
   // Search data
@@ -40,7 +41,7 @@ const UserDocument = () => {
       .catch(console.error)
   }, [])
   
-  
+  console.log(previewData)
   return (
     <article>
       <section className="flex justify-center items-center gap-2 my-10">
@@ -52,7 +53,8 @@ const UserDocument = () => {
               : <ul className="p-4 absolute top-8 left-0 right-0 border-[1px] border-t-0 flex flex-col gap-2
                 bg-white pb-8 rounded-b-2xl"
               >
-                {searchData.map(item => <li key={item.id} className='border-b-[1px] border-b-[#CCCCCC] cursor-pointer'>{item.plaque}</li>).slice(0,5)}
+                {searchData.map(item => <Link to={`/user-document/one-document?document=${item.id}`}>
+               <li key={item.id} className='border-b-[1px] border-b-[#CCCCCC] cursor-pointer'>{item.plaque}</li> </Link>).slice(0, 5)}
               </ul>
           }
         </div>
