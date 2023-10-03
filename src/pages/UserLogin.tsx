@@ -9,7 +9,10 @@ import axios from "axios";
 import { DocContext } from "../Context/Context";
 
 const UserLogin = () => {
-  // Navigator
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
   const router = useNavigate();
   
   //Call Context states
@@ -23,7 +26,12 @@ const UserLogin = () => {
       toast.error('complete all the field', toastOptions)
       return
     }
-
+     /**
+     * If all is going well then send Data to the server
+     * We use axios library to the Fetch the Data
+     * The Post method of axios is used to send data to the server
+     * This method takes three parameters (Url, sending Data, Configuration of Data)
+     */
     try {
       const config : object = {
         headers: {

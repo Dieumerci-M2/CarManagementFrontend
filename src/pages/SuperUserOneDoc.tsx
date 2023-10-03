@@ -7,10 +7,16 @@ import AdminBouton from "../components/AdminBouton"
 import ModalDeleteDoc from "../components/ModalDeleteDoc"
 import { DocContext } from "../Context/Context"
 import { useContext } from "react"
-
+/**
+ * Define a page to get one Document for Super User
+ */
 const SuperUserOneDoc = () => {
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
   const router = useNavigate()
-  
+  // 
   const goHome = () => {
     router('/user-document')
   }

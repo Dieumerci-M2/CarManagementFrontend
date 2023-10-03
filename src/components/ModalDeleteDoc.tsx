@@ -2,12 +2,15 @@ import { WarningOutlined } from '@ant-design/icons';
 import {Button} from 'antd'
 import { DocContext } from '../Context/Context';
 import { useContext } from 'react';
-
+/**
+ * Define a Modal component to handle delete action and give it
+ * visible as props and also give it a boolean type
+ */
 const ModalDeleteDoc = ({ visible }: { visible: boolean }) => {
-
+// Use setModalDelete state comes from DocContext
     const { setModalDelete } = useContext(DocContext)
 
- 
+ // if the Modal is not visible then return anything
     if (!visible) return null
     
   return (

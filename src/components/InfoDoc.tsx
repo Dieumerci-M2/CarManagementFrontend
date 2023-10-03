@@ -1,6 +1,8 @@
-
-
-const InfoDoc = () => {
+/**
+ * Define a function to give information about a specific document
+ * And give it a document as his Props and an Object as his Type
+ */
+const InfoDoc = ({document} : {document : object}) => {
     
   return (
     <article className="">
@@ -8,7 +10,8 @@ const InfoDoc = () => {
               <span className="py-3 text-bold text-[24px]">1234AB 11</span> 
           </div>
           <section className="flex flex-col gap-8">
-             <div className="flex gap-4">
+              <div className="flex gap-4">
+                 
                 <div className="w-10 h-10 rounded-[50px] bg-[#00FF10FF]"></div>
                 <div className="flex justify-center w-[534px] h-[40px] rounded-[12px] shadow-md">
                 <span className="text-[20px] py-1">Assurance</span>

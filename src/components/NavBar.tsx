@@ -1,5 +1,5 @@
 import Image from '../assets/Logo.png'
-
+// Define NavBar compoment
 const NavBar = () => {
   return (
     <div className='shadow-md h-8'>

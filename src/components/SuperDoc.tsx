@@ -1,7 +1,14 @@
 import { UserDocumentInfo } from '../@types/global'
 import { useNavigate } from 'react-router-dom'
-
+/**
+ * Define Super Document component and give It Data as his props and give it
+ * UserDocumentInfo as his Type
+ */
 const SuperDoc = ({ data }: { data: UserDocumentInfo }) => {
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
      const router = useNavigate()
   return (
      <article className='flex flex-col shadow-md w-60 rounded-b-md'>

@@ -14,8 +14,9 @@ import AddDoc from './pages/AddDoc';
 import UpdateDoc from './pages/UpdateDoc';
 
 function App() {
-  
-
+  /**
+   * Define All possible Roads That would be used on the App
+   */
   return (
   <div className=''>
       <Router>

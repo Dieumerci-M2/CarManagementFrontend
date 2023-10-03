@@ -4,7 +4,11 @@ import { Button } from 'antd';
 import { ToastContainer, toast } from 'react-toastify';
 import { DocContext } from '../Context/Context';
 import axios from 'axios';
-
+/**
+ * Define AddDoc Page for Add document on the DB
+ * We use useRef intead od useState to the reason of rerendering
+ * of pages at alltimes when we change state of the element
+ */
 const AddDoc = () => {
     const nameProp = useRef<HTMLInputElement>(null)
     const pictureProp = useRef<HTMLInputElement>(null)
@@ -17,9 +21,11 @@ const AddDoc = () => {
   const permideConduireRef = useRef<HTMLSelectElement>(null)
   const controleTechniqueRef = useRef<HTMLSelectElement>(null)
   const vitreTinteRef  = useRef<HTMLSelectElement>(null)
-
+// Take the toastOption element provided by DocContext
   const {toastOptions} = useContext(DocContext)
-  
+  /**
+ * Define AddDoc function for Add document on the DB
+ */
   const addDoc = async () => {
     
     const nomProp = nameProp.current.value
@@ -39,13 +45,16 @@ const AddDoc = () => {
       return
     }
     try {
+    // Configurate the headers and the mode of sending Data when we'l use axios for Fetching data
      const config : object = {
         headers: {
             'Content-Type' : 'application/json'
         },
         mode : 'cors'
       }
-
+    /**
+     * The POST axios's method insert elements cames to the client and go to the sever
+     *  */ 
      await axios.post('https://carmanagementbackend-production.up.railway.appdocument/create/new',
        {
          plaque, nomProp, photoProp, photoVehicule, assurance, vignette, carteRose, permiDeConduire,
@@ -54,6 +63,7 @@ const AddDoc = () => {
       toast.success(`Document added successfuly`, toastOptions)
     } catch (error) {
       console.error()
+      toast.error(`There is a problem on process`, toastOptions)
    }
   }
 

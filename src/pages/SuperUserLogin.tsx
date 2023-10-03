@@ -7,22 +7,30 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import { DocContext } from "../Context/Context";
 import { useContext } from "react";
-
+/**
+ * Define the name of Super User Login Page
+ * @returns 
+ */
 const SuperUserLogin = () => {
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
   const router = useNavigate();
-
-    //Call Context
-  const {LogName, LogPassword, setLogName, setLogPassword} = useContext(DocContext)
-
-  const { toastOptions } = useContext(DocContext)
-  
+  // Call Context
+  const {LogName, LogPassword, setLogName, setLogPassword, toastOptions} = useContext(DocContext)
+  // Define a function Handler super user login
    const connectHandler = async () => {
-
+  // Check if there is something on Logname and Logpassword
     if (LogName.length === 0 && LogPassword.length) {
       toast.error('complete all the field', toastOptions)
       return
     }
-
+    /**
+     * If there is something, Then Configurate the headers and the mode of sending Data 
+     * when we'l use axios for Fetching data
+     * The POST axios's method insert elements cames to the client and go to the sever
+     */
     try {
       const config : object = {
         headers: {
@@ -30,12 +38,23 @@ const SuperUserLogin = () => {
         },
         mode : 'cors'
       }
-
+      /**
+       * Fetch Data and store them on data constant
+       * Give the Type of income data as UserLoginInfo interface 
+       * As you can see the method Post of axios take tree parameters
+       * Url, sending Data and Data configuration.
+       */
       const { data }: { data: UserLoginInfo[] } = await axios.post("https://carmanagementbackend-production.up.railway.app/superuserLogin/account/login",
         { userName: LogName, password: LogPassword }, config)
       
       toast.success('Login successful', toastOptions)
-      
+      /**
+       * The local storage has tow method that is more used (getItem() and setItem)
+       * setItem has two parameters inside on it
+       * The name on storage and the sending Data
+       * As the data comes in Json() format, we need to convert it to String format
+       * in order to store it in LocalStorage.
+       */
        localStorage.setItem( 'InfoUser', JSON.stringify(data))
       router('/super-user-document')
       

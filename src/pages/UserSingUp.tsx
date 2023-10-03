@@ -8,6 +8,10 @@ import { DocContext } from "../Context/Context";
 import axios from "axios";
 
 const UserSingUp = () => {
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
   const router = useNavigate();
   const { toastOptions } = useContext(DocContext)
     const {LogName, LogPassword,ConfirmPassword,setConfirmPassword, setLogName, setLogPassword} = useContext(DocContext)
@@ -15,22 +19,46 @@ const UserSingUp = () => {
   // Regex to validate userName and password
   let regexEmail = /^([a-zA-Z._\-0-9]{3,50})@([a-zA-Z0-9]{3,20})\.([a-zA-Z]{2,5})$/;
   let regexPassword = /^([ #-ù]{8,20})$/i;
-
+/**
+ * Define a function to Handle Data submission After passing on some condition
+ */
   const submitHandler = async () => {
+    /**
+     * We need to Know if the input element is empty or not
+     * If is empty then give an alert to the user by Toast component and return anything
+     * */
     if (LogName.length == 0 || LogPassword.length == 0 || ConfirmPassword.length == 0) {
       toast.warning(`Please complete  all the field`, toastOptions)
       return
     }
+    /**
+     * After we check if the data on the input password is simular to the
+     * data on the input Confirm password, if is not simular then send the Alert 
+     * to the user by Toast component 
+     */
     if ( LogPassword !== ConfirmPassword ) {
       toast.warning('please enter the some password', toastOptions)
     }
+    /**
+     * After we check if the data on the input Login respect the Regex pattern,
+     * if is not simular then send the Alert to the user by Toast component 
+     */
     if ( !regexEmail.test( LogName ) ) {
       toast.error(`Please enter a valid Email`, toastOptions)
     }
+    /**
+     * After we check if the data on the input Password respect the Regex pattern,
+     * if is not simular then send the Alert to the user by Toast component 
+     */
     if ( !regexPassword.test( LogPassword ) ) {
       toast.error(`Please enter a valid Password`, toastOptions)
     }
-    
+    /**
+     * If all is going well then send Data to the server
+     * We use axios library to the Fetch the Data
+     * The Post method of axios is used to send data to the server
+     * This method takes three parameters (Url, sending Data, Configuration of Data)
+     */
   try {
      const config : object = {
         headers: {

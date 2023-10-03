@@ -5,6 +5,10 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 const UserOneDocument = () => {
+   /**
+   * Asign a constante to the Hook useNavigate In fact to nagivate trougth other pages
+   * or components
+   *  */ 
   const router = useNavigate()
   
   const [query] = useSearchParams()
@@ -19,6 +23,7 @@ const UserOneDocument = () => {
     
     })
   }, [query])
+  console.log(docData)
   const goHome = () => {
     router('/user-document')
   }
@@ -27,16 +32,16 @@ const UserOneDocument = () => {
       <section className="flex flex-col justify-between">
         <div className="mb-6" onClick={goHome}><ArrowLeftOutlined/></div>
         <div className="flex flex-col gap-2">
-          <img src={ docData?.photoVehicule} alt="Car" className="w-80 h-48 bg-cover"/>
-          <span>Marque : {docData?.marque }</span>
+          <img src={docData.photoVehicule} alt="Car" className="w-80 h-48 bg-cover"/>
+          <span>Marque : {docData.marque }</span>
         </div>
         <div className="flex flex-col gap-2">
-          <img src={ docData?.photoProp } alt="Owner" className="w-80 h-48 bg-cover"/>
-          <span>{ docData?.nomProp}</span>
+          <img src={ docData.photoProp } alt="Owner" className="w-80 h-48 bg-cover"/>
+          <span>{ docData.nomProp}</span>
         </div>
       </section> 
       <section>
-        <InfoDoc />
+        <InfoDoc document={ docData} />
       </section>
     </article>
   )

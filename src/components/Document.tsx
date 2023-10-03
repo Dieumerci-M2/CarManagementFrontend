@@ -1,9 +1,19 @@
+// Call an Interface from global.d.ts
 import { UserDocumentInfo } from '../@types/global'
+// Call Link cames from react-router-dom
 import { Link} from 'react-router-dom'
-
+/**
+ * Define Document component and give It Data as his props and give it
+ * UserDocumentInfo as his Type
+ */
 const Document = ({ data }: { data: UserDocumentInfo }) => {
   return (
     <article className='flex flex-col shadow-md w-60 rounded-b-md'>
+      {/* 
+      Use Link as a JSX syntax 
+      Link has 'to' Attribute to spefify the route to move into 
+      When the cursor move on the nexted elements inside
+       */}
       <Link to={`/user-document/one-document?document=${data.id}`}>
         <div className='cursor-pointer'>
         <img src={data?.photoVehicule } className='h-44' />
